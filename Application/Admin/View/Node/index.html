@@ -2,8 +2,7 @@
 <block name="content">
     <div class="row">
         <div class="col-xs-12">
-            <p><a class="btn btn-success" href="{:U('new')}"><i class="fa fa-plus-circle"></i> 新增节点</a></p>
-
+            <p><a class="btn btn-success" href="{:U('add')}"><i class="fa fa-plus-circle"></i> 新增节点</a></p>
             <div class="box">
                 <div class="box-body table-responsive no-padding">
                     <table class="table table-hover">
@@ -17,7 +16,7 @@
                             <th>排序</th>
                             <th>操作</th>
                         </tr>
-                        <volist name="nodeList" id="node">
+                        <volist name="nodeList" id="node" empty="$empty">
                             <tr>
                                 <td>{$node.nid}</td>
                                 <td>{$node.nname}</td>
@@ -29,10 +28,11 @@
                                 <td>{$node.norder}</td>
                                 <td>
                                     <a class="btn btn-info btn-xs btn-flat"
-                                       href="{:U('modify', array('nid'=>$node['nid']))}"><i class="fa fa-edit"></i>
+                                       href="{:U('edit', array('nid'=>$node['nid']))}"><i class="fa fa-edit"></i>
                                         编辑</a>
                                     <a class="btn btn-danger btn-xs btn-flat"
-                                       href="{:U('delete', array('nid'=>$node['nid']))}"><i class="fa fa-trash-o"></i>
+                                       href="{:U('delete', array('nid'=>$node['nid']))}"
+                                       onclick="return confirm('请确认删除');"><i class="fa fa-trash-o"></i>
                                         删除</a>
                                 </td>
                             </tr>
@@ -40,9 +40,7 @@
                         </tbody>
                     </table>
                 </div>
-                <!-- /.box-body -->
             </div>
-            <!-- /.box -->
         </div>
     </div>
 </block>
