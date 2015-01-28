@@ -1,0 +1,48 @@
+<extend name="Public:common"/>
+<block name="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <p><a class="btn btn-success" href="{:U('new')}"><i class="fa fa-plus-circle"></i> 新增节点</a></p>
+
+            <div class="box">
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-hover">
+                        <tbody>
+                        <tr>
+                            <th>ID</th>
+                            <th>节点名称</th>
+                            <th>节点描述</th>
+                            <th>用户分配(已分配/最大)</th>
+                            <th>流量分配(已分配/最大)</th>
+                            <th>排序</th>
+                            <th>操作</th>
+                        </tr>
+                        <volist name="nodeList" id="node">
+                            <tr>
+                                <td>{$node.nid}</td>
+                                <td>{$node.nname}</td>
+                                <td>{$node.ninfo}</td>
+                                <td>{$node.nusr} / {$node.nusr_max}+{$node.nusr_vip}</td>
+                                <td>{$node.ntraffic|formatMBytesToString} /
+                                    {$node.ntraffic_max|formatMBytesToString}+{$node.ntraffic_vip|formatMBytesToString}
+                                </td>
+                                <td>{$node.norder}</td>
+                                <td>
+                                    <a class="btn btn-info btn-xs btn-flat"
+                                       href="{:U('modify', array('nid'=>$node['nid']))}"><i class="fa fa-edit"></i>
+                                        编辑</a>
+                                    <a class="btn btn-danger btn-xs btn-flat"
+                                       href="{:U('delete', array('nid'=>$node['nid']))}"><i class="fa fa-trash-o"></i>
+                                        删除</a>
+                                </td>
+                            </tr>
+                        </volist>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+    </div>
+</block>

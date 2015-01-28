@@ -12,3 +12,11 @@ function get_gravatar( $email, $s = 80, $d = 'mm', $r = 'g', $img = false, $atts
     }
     return $url;
 }
+
+// 格式化流量
+function formatMBytesToString($mbytes)
+{
+    $units = array('MB', 'GB', 'TB');
+    for ($i = 0; $mbytes >= 1024 && $i < 2; $i++) $mbytes /= 1024;
+    return round($mbytes, 2) . $units[$i];
+}
