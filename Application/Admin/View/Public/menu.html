@@ -1,0 +1,34 @@
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="left-side sidebar-offcanvas">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+        <!-- Sidebar user panel -->
+        <div class="user-panel">
+            <div class="pull-left image">
+                <img src="{$admname|get_gravatar}" class="img-circle" alt="User Image" />
+            </div>
+            <div class="pull-left info">
+                <p>Hi, {$admtitle}</p>
+            </div>
+        </div>
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu">
+            <li class="active">
+                <a href="{:U('index')}">
+                    <i class="fa fa-dashboard"></i> <span>管理首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="{:U('Node/index')}">
+                    <i class="fa fa-sitemap"></i> <span>节点管理</span>
+                </a>
+            </li>
+            <li>
+                <a href="{:U('User/index')}">
+                    <i class="fa fa-users"></i> <span>用户管理</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <!-- /.sidebar -->
+</aside>

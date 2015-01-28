@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>管理员登录</title>
+	<import type='css' file="css.bootstrap#min"/>
+</head>
+<body>
+<div class="container">
+	<style>
+		body {
+			padding-top: 40px;
+			padding-bottom: 40px;
+			background-color: #eee;
+		}
+		.form-signin {
+			max-width: 450px;
+			padding: 15px;
+			margin: 0 auto;
+		}
+		.form-signin .form-signin-heading {
+			margin-bottom: 30px;
+			font-weight: normal;
+		}
+		.form-signin .form-control {
+			position: relative;
+			font-size: 16px;
+			height: auto;
+			padding: 10px;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+		.form-signin .form-control:focus {
+			z-index: 2;
+		}
+		.form-signin input {
+			margin-bottom: 5px;
+		}
+	</style>
+	<form class="form-signin form-horizontal" role="form" action="{:U('doLogin')}" method="post">
+		<h2 class="form-signin-heading text-center">管理员登录</h2>
+		<div class="form-group">
+			<label for="usr_name" class="col-sm-3 control-label">用户名</label>
+			<div class="col-sm-9">
+				<input id="usr_name" type="text" class="form-control" placeholder="请输入用户名" name="usr_name" required autofocus>
+			</div>
+			<label for="usr_password" class="col-sm-3 control-label">密　码</label>
+			<div class="col-sm-9">
+				<input id="usr_password" type="password" class="form-control" placeholder="请输入密码" name="usr_password" required>
+			</div>
+			<label for="code" class="col-sm-3 control-label">验证码</label>
+			<div class="col-sm-4">
+				<input type="text" class="form-control" id="code" name="code" placeholder="验证码" required />
+			</div>
+			<div class="col-sm-5">
+				<img src="{:U('Login/verify','','')}" onclick="javascript:this.src=this.src+'?time='+Math.random()" />
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-1 col-sm-11">
+				<button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+			</div>
+		</div>
+	</form>
+</div>
+<import type='js' file="js.jquery-1#10#2#min"/>
+<import type='js' file="js.bootstrap#min"/>
+</body>
+</html>
